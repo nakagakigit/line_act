@@ -6,6 +6,8 @@ on:
   # 例：毎日朝9時に実行する場合（cronはUTC時間なので日本時間ならマイナス9時間）
   # schedule:
   #   - cron: '0 0 * * *' 
+  schedule:
+    - cron: '0 21 * * *'
 
 jobs:
   send-message:
