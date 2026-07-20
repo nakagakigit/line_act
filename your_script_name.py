@@ -1,5 +1,7 @@
 import os
 from linebot.v3.messaging import Configuration, ApiClient, MessagingApi, PushMessageRequest, TextMessage
+import yfinance as yf
+import pandas as pd
 
 # 環境変数から取得
 CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
