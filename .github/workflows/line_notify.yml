@@ -22,8 +22,10 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies
-        run: pip install line-bot-sdk
-
+        run: |
+          python -m pip install --upgrade pip
+          pip install yfinance line-bot-sdk
+          
       - name: Send LINE Message
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
