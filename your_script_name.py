@@ -51,8 +51,24 @@ def main():
     print(f"今日 - 25日平均: {today_sma25:.2f}, 75日平均: {today_sma75:.2f}\n昨日 - 25日平均: {yesterday_sma25:.2f}, 75日平均: {yesterday_sma75:.2f}")
     # print(f"今日 - 25日平均: {today_sma25:.2f}, 75日平均: {today_sma75:.2f}")
     # print(f"昨日 - 25日平均: {yesterday_sma25:.2f}, 75日平均: {yesterday_sma75:.2f}")
+    # 昨日までは「25日平均 <= 75日平均」だったが、今日「25日平均 > 75日平均」になった
+    is_golden_cross = (yesterday_sma25 <= yesterday_sma75) and (today_sma25 > today_sma75)
+
+    # デッドクロス判定:
+    # 昨日までは「25日平均 >= 75日平均」だったが、今日「25日平均 < 75日平均」になった
+    is_dead_cross = (yesterday_sma25 >= yesterday_sma75) and (today_sma25 < today_sma75)
+
+    # 結果の出力
+    if is_golden_cross:
+        hantei = "判定: 【ゴールデンクロス発生！】\n"
+    elif is_dead_cross:
+        hantei = "判定: 【デッドクロス発生！】\n"
+    else:
+        hantei = "判定: クロスは発生していません。\n"
+
+    
     # 関数の呼び出し
-    send_line_message(f"今日 - 25日平均: {today_sma25:.2f}, 75日平均: {today_sma75:.2f}\n昨日 - 25日平均: {yesterday_sma25:.2f}, 75日平均: {yesterday_sma75:.2f}")
+    send_line_message(hantei + f"今日 - 25日平均: {today_sma25:.2f}, 75日平均: {today_sma75:.2f}\n昨日 - 25日平均: {yesterday_sma25:.2f}, 75日平均: {yesterday_sma75:.2f}")
 
 if __name__ == "__main__":
     main()
