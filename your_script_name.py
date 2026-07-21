@@ -23,5 +23,36 @@ def send_line_message(message_text):
         )
         print("送信成功！")
 
-# 関数の呼び出し
-send_line_message('GitHub Actions関数の呼び出しからの通知です')
+def main():
+    # 銘柄コード（東京証券取引所は .T を付けます）
+    ticker = "1540.T"
+
+    # データの取得（過去1年分）
+    df = yf.download(ticker, period="1y")
+
+    # 25日・75日移動平均の算出
+    df['SMA25'] = df['Close'].rolling(window=25).mean()
+    df['SMA75'] = df['Close'].rolling(window=75).mean()
+
+    # 直近のデータを表示（今日と昨日の分を確認）
+    print(df[['Close', 'SMA25', 'SMA75']].tail(2))
+
+    # 最新（今日）と一つ前（昨日）の行を取得
+    today_data = df.iloc[-1]
+    yesterday_data = df.iloc[-2]
+
+    # .item() を使うことで、Seriesから数値データを取り出せます
+    today_sma25 = today_data['SMA25'].item()
+    today_sma75 = today_data['SMA75'].item()
+    yesterday_sma25 = yesterday_data['SMA25'].item()
+    yesterday_sma75 = yesterday_data['SMA75'].item()
+
+    # これで通常の数値として扱えるため、フォーマット指定が可能です
+    print(f"今日 - 25日平均: {today_sma25:.2f}, 75日平均: {today_sma75:.2f}\n昨日 - 25日平均: {yesterday_sma25:.2f}, 75日平均: {yesterday_sma75:.2f}")
+    # print(f"今日 - 25日平均: {today_sma25:.2f}, 75日平均: {today_sma75:.2f}")
+    # print(f"昨日 - 25日平均: {yesterday_sma25:.2f}, 75日平均: {yesterday_sma75:.2f}")
+    # 関数の呼び出し
+    send_line_message(f"今日 - 25日平均: {today_sma25:.2f}, 75日平均: {today_sma75:.2f}\n昨日 - 25日平均: {yesterday_sma25:.2f}, 75日平均: {yesterday_sma75:.2f}")
+
+if __name__ == "__main__":
+    main()
