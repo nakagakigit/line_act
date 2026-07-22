@@ -33,15 +33,15 @@ def main():
         ticker = f"{code}.T"
         hantei += f"{code}\n"
         
-　　    # データの取得（過去1年分）
-    　　df = yf.download(ticker, period="1y")
+        # データの取得（過去1年分）
+        df = yf.download(ticker, period="1y")
 
-　　    # 25日・75日移動平均の算出
-    　　df['SMA25'] = df['Close'].rolling(window=25).mean()
+        # 25日・75日移動平均の算出
+        df['SMA25'] = df['Close'].rolling(window=25).mean()
         df['SMA75'] = df['Close'].rolling(window=75).mean()
 
-    　　# 直近のデータを表示（今日と昨日の分を確認）
-    　　# print(df[['Close', 'SMA25', 'SMA75']].tail(2))
+        # 直近のデータを表示（今日と昨日の分を確認）
+        # print(df[['Close', 'SMA25', 'SMA75']].tail(2))
 
         # 最新（今日）と一つ前（昨日）の行を取得
         today_data = df.iloc[-1]
