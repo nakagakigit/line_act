@@ -55,7 +55,10 @@ def main():
         today_sma75 = today_data['SMA75'].item()
         yesterday_sma25 = yesterday_data['SMA25'].item()
         yesterday_sma75 = yesterday_data['SMA75'].item()
-
+        print(today_sma25)
+        print(today_sma75)
+        print(yesterday_sma25)
+        print(yesterday_sma75)
         # これで通常の数値として扱えるため、フォーマット指定が可能です
         # print(f"今日 - 25日平均: {today_sma25:.2f}, 75日平均: {today_sma75:.2f}\n昨日 - 25日平均: {yesterday_sma25:.2f}, 75日平均: {yesterday_sma75:.2f}")
         # print(f"今日 - 25日平均: {today_sma25:.2f}, 75日平均: {today_sma75:.2f}")
