@@ -24,7 +24,7 @@ def send_line_message(message_text):
         print("送信成功！")
 
 def main():
-    ticker_list = ["1540","5803"]
+    ticker_list = ["1540","5803","285A"]
 
     hantei = ""
 
