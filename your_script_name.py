@@ -47,6 +47,8 @@ def main():
         # 最新（今日）と一つ前（昨日）の行を取得
         today_data = df.iloc[-1]
         yesterday_data = df.iloc[-2]
+        print(today_data)
+        print(yesterday_data)
 
         # .item() を使うことで、Seriesから数値データを取り出せます
         today_sma25 = today_data['SMA25'].item()
