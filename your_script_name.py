@@ -80,7 +80,7 @@ def main():
         hantei += f"今日 - 25日平均: {today_sma25:.2f}, 75日平均: {today_sma75:.2f}\n昨日 - 25日平均: {yesterday_sma25:.2f}, 75日平均: {yesterday_sma75:.2f}\n\n"
     
     # 関数の呼び出し
-    # send_line_message(hantei)
+    send_line_message(hantei)
     print(hantei)
 
 if __name__ == "__main__":
