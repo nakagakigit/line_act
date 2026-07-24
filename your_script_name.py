@@ -25,7 +25,7 @@ def send_line_message(message_text):
 
 def main():
     # ticker_list = ["1540","5803","285A"]
-    ticker_list = ["285A","1540","5803"]
+    ticker_list = ["285A","1540","5803","278A"]
 
     hantei = ""
 
