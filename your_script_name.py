@@ -28,6 +28,7 @@ def main():
     ticker_list = ["285A","1540","5803","278A","6506","6976"]
 
     hantei = ""
+    cross_flag = False
 
     for code in ticker_list:
        # 銘柄コード（東京証券取引所は .T を付けます）
@@ -73,11 +74,16 @@ def main():
         # 結果の出力
         if is_golden_cross:
             hantei += "判定: 【ゴールデンクロス発生！】\n"
+            cross_flag = True
         elif is_dead_cross:
             hantei += "判定: 【デッドクロス発生！】\n"
+            cross_flag = True
         else:
             hantei += "判定: クロスは発生していません。\n"
         hantei += f"今日 - 25日平均: {today_sma25:.2f}, 75日平均: {today_sma75:.2f}\n昨日 - 25日平均: {yesterday_sma25:.2f}, 75日平均: {yesterday_sma75:.2f}\n\n"
+
+    if cross_flag = True:
+        hantei = "★★★　クロス発生　★★★\n" +  hantei
     
     # 関数の呼び出し
     send_line_message(hantei)
