@@ -82,7 +82,7 @@ def main():
             hantei += "判定: クロスは発生していません。\n"
         hantei += f"今日 - 25日平均: {today_sma25:.2f}, 75日平均: {today_sma75:.2f}\n昨日 - 25日平均: {yesterday_sma25:.2f}, 75日平均: {yesterday_sma75:.2f}\n\n"
 
-    if cross_flag = True:
+    if cross_flag == True:
         hantei = "★★★　クロス発生　★★★\n" +  hantei
     
     # 関数の呼び出し
