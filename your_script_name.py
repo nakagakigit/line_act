@@ -25,7 +25,10 @@ def send_line_message(message_text):
 
 def main():
     # ticker_list = ["1540","5803","285A"]
-    ticker_list = ["285A","1540","5803","278A","6506","6976"]
+    # ticker_list = ["285A","1540","5803","278A","6506","6976"]
+    with open("code.txt", "r", encoding="utf-8") as f:
+        # 改行文字を取り除きながらリスト化
+        ticker_list = [line.strip() for line in f]
 
     hantei = ""
     cross_flag = False
