@@ -92,6 +92,8 @@ def main():
 
     if cross_flag == True:
         cross_moji = "★★★　クロス発生　★★★\n" +  cross_moji
+    else:
+        cross_moji = "なし\n"
 
     hantei = cross_moji + hantei
     
