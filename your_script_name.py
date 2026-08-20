@@ -96,7 +96,8 @@ def main():
     hantei = cross_moji + hantei
     
     # 関数の呼び出し
-    send_line_message(hantei)
+    # send_line_message(hantei)
+    send_line_message(cross_moji)
     print(hantei)
 
 if __name__ == "__main__":
