@@ -45,7 +45,7 @@ def get_cnn_fear_and_greed():
         # print(f"指数: {score}")
         print(f"指数: {score:.1f}")
         print(f"判定: {rating}")
-        send_line_message(f"{score:.1f}")
+        send_line_message(f"{score:.1f}({rating})")
     else:
         print(f"データの取得に失敗しました。ステータスコード: {response.status_code}")
         send_line_message(f"データの取得に失敗しました。ステータスコード: {response.status_code}")
