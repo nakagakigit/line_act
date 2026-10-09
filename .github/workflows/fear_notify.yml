@@ -28,6 +28,6 @@ jobs:
           
       - name: Send LINE Message
         env:
-          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
-          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.FEAR_LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.FEAR_LINE_USER_ID }}
         run: python fear_and_greed_index.py  # 実際のファイル名に変更してください
