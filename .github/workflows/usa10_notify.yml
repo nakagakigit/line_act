@@ -1,0 +1,33 @@
+name: USA 10nen Message
+
+on:
+  # 手動実行する場合
+  workflow_dispatch:
+  # 例：毎日朝9時に実行する場合（cronはUTC時間なので日本時間ならマイナス9時間）
+  # schedule:
+  #   - cron: '0 0 * * *' 
+  schedule:
+    - cron: '0 9 * * 1-5'
+
+jobs:
+  send-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas pandas_datareader
+          
+      - name: Send LINE Message
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.USA10_LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.USA10_LINE_USER_ID }}
+        run: python usa_10nen_kinri.py  # 実際のファイル名に変更してください
